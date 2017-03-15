@@ -3,6 +3,9 @@ MAINTAINER HeaDBanGer84
 
 ENV RACCOON_VERSION 3.7
 ENV GOCRON_VERSION 0.0.2
+ENV CRONTIME="* */4   *   *   *"
+ENV UID=1000
+ENV GID=1000
 
 # Install Dependecies and binaries for fdroid & raccoon
 RUN dpkg --add-architecture i386
@@ -32,7 +35,6 @@ VOLUME [/raccoon]
 VOLUME [/fdroid]
 
 # Format:     m h    dom mon dow
-ENV CRONTIME="* */4   *   *   *"
 
 WORKDIR /fdroid
 

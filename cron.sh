@@ -9,7 +9,7 @@ function moveAPK {
 	output="$2"
 	if [ ! -f $output ]
 	then
-		ln -s $input $output
+		mv -f $input $output
 	fi
 }
 
@@ -70,3 +70,8 @@ cd $FDROID
 # Update Fdroid and create Metadata if needed
 echo "### updating FDROID..."
 fdroid update -c
+
+#Fixing Ownershipc
+chown $UID:$GID -R "$FDROID/repo"
+chown $UID:$GID -R "$FDROID/metadata"
+chown $UID:$GID -R "$RACCOON"
